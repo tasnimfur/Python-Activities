@@ -23,16 +23,19 @@ while True:
         break
 
     #to do: check validity of user input
-    size=input("Do you want small, medium, or large? ")
-    type=input("Do you want brewed, espresso, or cold brew? ")
-    flavour=input("Do you want a flavored syrup? (yes or no) ")
+    size=input("Do you want small, medium, or large? ").lower()
+    type=input("Do you want brewed, espresso, or cold brew? ").lower()
+    flavour=input("Do you want a flavored syrup? (yes or no) ").lower()
 
     orderStr+=size; orderStr+=" "
     orderStr+=type; orderStr+=" "
 
     total_price+=prices[size]
     total_price+=prices[type]
-
+    
+    #if size==1 or size in prices.keys:
+    
+    
     if flavour == 'yes':
         orderStr+="with added flavour"
         total_price+=prices['flavour']
