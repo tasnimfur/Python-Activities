@@ -1,0 +1,55 @@
+total_price=0
+orderStr="You ordered a "
+prices = dict()
+
+prices['small'] = 2
+prices['medium'] = 3
+prices['large'] = 4
+prices['brewed'] = 0
+prices['espresso'] = 0.50
+prices['cold brew'] = 1
+prices['flavour'] = 0.5
+
+print("---------------------------------------------------")
+print("----------Welcome to Tasnim's Coffee Shop----------")
+print("---------------------------------------------------")
+
+
+while True:
+
+    quit=input("Type 1 to start a new order or any other key to quit. ")
+
+    if quit != '1':
+        break
+
+    #to do: check validity of user input
+    size=input("Do you want small, medium, or large? ")
+    type=input("Do you want brewed, espresso, or cold brew? ")
+    flavour=input("Do you want a flavored syrup? (yes or no) ")
+
+    orderStr+=size; orderStr+=" "
+    orderStr+=type; orderStr+=" "
+
+    total_price+=prices[size]
+    total_price+=prices[type]
+
+    if flavour == 'yes':
+        orderStr+="with added flavour"
+        total_price+=prices['flavour']
+    else:
+        orderStr+="without flavour"
+
+
+    tips = (total_price*0.15)
+
+    print("---------------------------------------------------")
+    print("----------------Your Order Summary-----------------")
+    print("---------------------------------------------------")
+
+
+    print(orderStr)
+    print("Your total price is             ", f"${total_price:.2f}") 
+    print("Your total price with 15% tip is", f"${(total_price+tips):.2f}")
+
+
+
